@@ -2,7 +2,9 @@ package com.example.config;
 
 import com.example.beans.Vehicle;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 /**
  * This annotation marks a class as a source of bean definitions for the application context.
@@ -10,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
  * It is typically used in conjunction with the @ComponentScan annotation.
  */
 @Configuration
+@ComponentScan("com.example.beans")
 public class ProjectConfig {
 
     /**
@@ -19,20 +22,29 @@ public class ProjectConfig {
      * If no name is specified, the name of the bean will be the name of the method.
      * The return type of the method should be the type of the bean.
      */
-    @Bean
-    Vehicle vehicle() {
+
+   /*
+   @Bean(name="audiVehicle")
+    Vehicle vehicle1() {
         var vehicle = new Vehicle();
-        vehicle.setName("Audi 8");
+        vehicle.setName("Audi");
         return vehicle;
     }
 
-    @Bean
-    String hello() {
-        return "Hello";
+    @Bean(name="hondaVehicle")
+    Vehicle vehicle2() {
+        var vehicle = new Vehicle();
+        vehicle.setName("Honda");
+        return vehicle;
     }
 
-    @Bean
-    Integer number() {
-        return 16;
+    @Primary
+    @Bean(name="ferrariVehicle")
+    Vehicle vehicle3() {
+        var vehicle = new Vehicle();
+        vehicle.setName("Ferrari");
+        return vehicle;
     }
+*/
+
 }
